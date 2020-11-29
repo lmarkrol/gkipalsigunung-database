@@ -14,7 +14,7 @@ include('config.php');
 		<table class="table table-striped jambo_table bulk_action" ; style="text-align:center">
 			<thead>
 				<tr style="line-height:25px;">
-					<th style="vertical-align:middle">Nomor</th>
+				<th style="vertical-align:middle">Nomor</th>
 					<th style="vertical-align:middle">Nomor&nbsp;Induk</th>
 					<th style="vertical-align:middle">Aktif&nbsp;Berjemaat</th>
 					<th style="vertical-align:middle">Nama&nbsp;Lengkap</th>
@@ -32,7 +32,7 @@ include('config.php');
 			</thead>
 			<tbody>
 				<?php
-				//query ke database SELECT tabel personal urut berdasarkan id yang paling besar
+				//query ke database SELECT tabel mahasiswa urut berdasarkan id yang paling besar
 				$sql = mysqli_query($koneksi, "SELECT * FROM personal ORDER BY nomorinduk DESC") or die(mysqli_error($koneksi));
 				//jika query diatas menghasilkan nilai > 0 maka menjalankan script di bawah if...
 				if(mysqli_num_rows($sql) > 0){

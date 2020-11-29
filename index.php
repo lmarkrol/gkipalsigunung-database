@@ -170,10 +170,29 @@
       parse_str($_SERVER['QUERY_STRING'], $queries);
       error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
       switch ($queries['page']) {
+  // Personal System
       	case 'personal_data':
       		# code...
       		include 'personal.php';
           break;
+        case 'tambah_personal':
+           # code...
+          include 'personal_tambah.php';
+           break;
+        case 'tampil_personal':
+           # code...
+          include 'personal_tampil.php';
+           break;
+        case 'edit_personal':
+        		# code...
+        	include 'personal_edit.php';
+        	break;
+        case 'edit_personal_save':
+          		# code...
+          include 'personal_edit.php';
+          break;
+  // Personal System
+
         case 'domisili_data':
            # code...
           include 'domisili.php';
