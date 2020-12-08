@@ -58,9 +58,16 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <ul class="nav side-menu">
-                  <li><a href="index.php"><i class="fas fa-church"></i>&emsp; Beranda <span class="fa fa-chevron"></span></a>
+                  <li><a href="index.php"><i class="fas fa-church"></i>&emsp;Beranda <span class="fa fa-chevron"></span></a>
                   </li>
-                  <li><a href="#"><i class="fa fa-calendar-alt"></i> Database Jemaat <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fas fa-project-diagram"></i>&emsp;Proses Data Jemaat <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.php?page=data_tambah">Tambah Data</a></li>
+                      <li><a href="#">Filter & Edit Data</a></li>
+                      <li><a href="#">Ekspor Data</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#"><i class="fa fa-calendar-alt"></i>&thinsp;Database Jemaat <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.php?page=personal_data">Personal</a></li>
                       <li><a href="index.php?page=domisili_data">Domisili</a></li>
@@ -76,28 +83,32 @@
                       <li><a href="index.php?page=catatan_data">Catatan</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-filter"></i> Filter Data Jemaat <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-filter"></i>&thinsp;Filter Data Jemaat <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Filter 1</a></li>
                       <li><a href="#">Filter 2</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-birthday-cake"></i> Filter Data Ulang Tahun <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="#"><i class="fa fa-birthday-cake"></i>&thinsp;Filter Data Ulang Tahun<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Filter 1</a></li>
-                      <li><a href="#">Filter 2</a></li>
+                      <li><a href="index.php?page=personal_data">Januari</a></li>
+                      <li><a href="index.php?page=domisili_data">Februari</a></li>
+                      <li><a href="index.php?page=gerejawi_data">Maret</a></li>
+                      <li><a href="index.php?page=marital_data">April</a></li>
+                      <li><a href="index.php?page=keluarga_data">Mei</a></li>
+                      <li><a href="index.php?page=pendidikan_data">Juni</a></li>
+                      <li><a href="index.php?page=pekerjaan_data">Juli</a></li>
+                      <li><a href="index.php?page=pelayanan_data">Agustus</a></li>
+                      <li><a href="index.php?page=kegiatan_data">September</a></li>
+                      <li><a href="index.php?page=talentahobi_data">Oktober</a></li>
+                      <li><a href="index.php?page=persembahan_data">November</a></li>
+                      <li><a href="index.php?page=catatan_data">Desember</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-chart-bar"></i> Statistik Data Jemaat <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-chart-bar"></i>&thinsp;Statistik Data Jemaat <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Filter 1</a></li>
-                      <li><a href="#">Filter 2</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fas fa-project-diagram"></i>&emsp;Klasifikasi Data Jemaat <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="#">Filter 1</a></li>
-                      <li><a href="#">Filter 2</a></li>
+                      <li><a href="#">Grafik Data</a></li>
+                      <li><a href="#">Diagram Data</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fas fa-user-lock"></i>&emsp;Hak Akses Pengguna <span class="fa fa-chevron-down"></span></a>
@@ -106,7 +117,7 @@
                       <li><a href="#">Filter 2</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-gear"></i> Pengaturan <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-gear"></i>&thinsp;Pengaturan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Settings 1</a></li>
                       <li><a href="#">Settings 2</a></li>
@@ -170,15 +181,33 @@
       parse_str($_SERVER['QUERY_STRING'], $queries);
       error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
       switch ($queries['page']) {
+  // Proses Data
+        case 'data_tambah':
+      		# code...
+      		include 'tambah_data.php';
+          break;
+        case 'data_filteredit':
+      		# code...
+      		include 'filteredit_data.php';
+          break;
+        case 'edit_data':
+        		# code...
+        	include 'data_edit.php';
+        	break;
+        case 'edit_data_save':
+          		# code...
+          include 'data_edit.php';
+          break;
+        case 'data_ekspor':
+      		# code...
+      		include 'ekspor_data.php';
+          break;
+  //Proses Data
   // Personal System
       	case 'personal_data':
       		# code...
       		include 'personal.php';
           break;
-        case 'tambah_personal':
-           # code...
-          include 'personal_tambah.php';
-           break;
         case 'tampil_personal':
            # code...
           include 'personal_tampil.php';
@@ -192,19 +221,41 @@
           include 'personal_edit.php';
           break;
   // Personal System
-
+        
+ // Domisili System
         case 'domisili_data':
            # code...
           include 'domisili.php';
            break;
+        case 'tampil_domisili':
+           # code...
+          include 'domisili_tampil.php';
+           break;
+   // Domisili System
+
+   // Gerejawi System
         case 'gerejawi_data':
           # code...
           include 'gerejawi.php';
            break;
+        case 'tampil_gerejawi':
+          # code...
+          include 'gerejawi_tampil.php';
+           break;
+    // Gerejawi System
+
+    // Marital System
         case 'marital_data':
           # code...
           include 'marital.php';
            break;
+        case 'tampil_marital':
+          # code...
+          include 'marital_tampil.php';
+           break;
+     // Marital System
+
+     
         case 'keluarga_data':
           # code...
           include 'keluarga.php';

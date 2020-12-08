@@ -9,12 +9,12 @@ include('config.php');
 		<font size="6">Data Personal</font>
 	</center>
 	<hr>
-	<a href="index.php?page=tambah_personal"><button class="btn btn-dark right">Tambah Data</button></a>
+	<!-- <a href="index.php?page=tambah_personal"><button class="btn btn-dark right">Tambah Data</button></a> -->
 	<div class="table-responsive">
 		<table class="table table-striped jambo_table bulk_action" ; style="text-align:center">
 			<thead>
 				<tr style="line-height:25px;">
-				<th style="vertical-align:middle">Nomor</th>
+					<th style="vertical-align:middle">Nomor</th>
 					<th style="vertical-align:middle">Nomor&nbsp;Induk</th>
 					<th style="vertical-align:middle">Aktif&nbsp;Berjemaat</th>
 					<th style="vertical-align:middle">Nama&nbsp;Lengkap</th>
@@ -24,6 +24,7 @@ include('config.php');
 					<th style="vertical-align:middle">Tanggal&nbsp;Lahir</th>
 					<th style="vertical-align:middle">Golongan&nbsp;Darah</th>
 					<th style="vertical-align:middle">Rhesus</th>
+					<th style="vertical-align:middle">Alamat</th>
 					<th style="vertical-align:middle">Wilayah</th>
 					<th style="vertical-align:middle">Kelompok</th>
 					<th style="vertical-align:middle">Admin</th>
@@ -53,6 +54,7 @@ include('config.php');
 							<td style="vertical-align:middle">'.$data['tanggallahir'].'</td>
 							<td style="vertical-align:middle">'.$data['golongandarah'].'</td>
 							<td style="vertical-align:middle">'.$data['rhesus'].'</td>
+							<td style="vertical-align:middle">'.$data['alamat'].'</td>
 							<td style="vertical-align:middle">'.$data['wilayah'].'</td>
 							<td style="vertical-align:middle">'.$data['kelompok'].'</td>
 							<td style="vertical-align:middle">'.$data['namaadmin'].'</td>

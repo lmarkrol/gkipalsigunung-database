@@ -39,11 +39,12 @@
 			$tanggallahir	= $_POST['tanggallahir'];
 			$golongandarah	= $_POST['golongandarah'];
 			$rhesus			= $_POST['rhesus'];
+			$alamat			= $_POST['alamat'];
 			$wilayah		= $_POST['wilayah'];
 			$kelompok		= $_POST['kelompok'];
 			$namaadmin		= $_POST['namaadmin'];
 
-			$sql = mysqli_query($koneksi, "UPDATE personal SET statusjemaat='$statusjemaat', namalengkap='$namalengkap', jeniskelamin='$jeniskelamin', sukuetnis='$sukuetnis', tempatlahir='$tempatlahir', tanggallahir='$tanggallahir', golongandarah='$golongandarah', rhesus='$rhesus', wilayah='$wilayah', kelompok='$kelompok', namaadmin='$namaadmin' WHERE nomorinduk='$nomorinduk'") or die(mysqli_error($koneksi));
+			$sql = mysqli_query($koneksi, "UPDATE personal SET statusjemaat='$statusjemaat', namalengkap='$namalengkap', jeniskelamin='$jeniskelamin', sukuetnis='$sukuetnis', tempatlahir='$tempatlahir', tanggallahir='$tanggallahir', golongandarah='$golongandarah', rhesus='$rhesus', alamat='$alamat', wilayah='$wilayah', kelompok='$kelompok', namaadmin='$namaadmin' WHERE nomorinduk='$nomorinduk'") or die(mysqli_error($koneksi));
 
 			if($sql){
 				echo '<script>alert("Berhasil menyimpan data."); document.location="index.php?page=tampil_personal";</script>';
@@ -118,7 +119,7 @@
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Tanggal Lahir</label>
 				<div class="col-md-6 col-sm-6">
-					<input type="text" name="tanggallahir" class="form-control" value="<?php echo $data['tanggallahir']; ?>" required>
+					<input type="date" name="tanggallahir" class="form-control" value="<?php echo $data['tanggallahir']; ?>" required>
 				</div>
 			</div>
 			<div class="item form-group">
@@ -129,6 +130,12 @@
 			</div>
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Rhesus</label>
+				<div class="col-md-6 col-sm-6">
+					<input type="text" name="rhesus" class="form-control" value="<?php echo $data['rhesus']; ?>" required>
+				</div>
+			</div>
+			<div class="item form-group">
+				<label class="col-form-label col-md-3 col-sm-3 label-align">Alamat</label>
 				<div class="col-md-6 col-sm-6">
 					<input type="text" name="rhesus" class="form-control" value="<?php echo $data['rhesus']; ?>" required>
 				</div>

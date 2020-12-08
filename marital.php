@@ -9,63 +9,66 @@ include('config.php');
 		<font size="6">Data Marital</font>
 	</center>
 	<hr>
-	<a href="index.php?page=tambah_mhs"><button class="btn btn-dark right">Tambah Data</button></a>
+	<!-- <a href="index.php?page=tambah_mhs"><button class="btn btn-dark right">Tambah Data</button></a> -->
 	<div class="table-responsive">
 		<table class="table table-striped jambo_table bulk_action" ; style="text-align:center">
 			<thead>
 				<tr style="line-height:15px;">
+					<th style="vertical-align:middle">Nomor</th>
+					<th style="vertical-align:middle">Nomor&nbsp;Induk</th>
+					<th style="vertical-align:middle">Nama&nbsp;Lengkap</th>
+					<th style="vertical-align:middle">Status&nbsp;Marital</th>
+					<th style="vertical-align:middle">Nama&nbsp;Suami/Istri</th>
 				
-					<th style="vertical-align:middle">Status Marital</th>
-					<th style="vertical-align:middle">Nama Suami/Istri</th>
-				
 				<td>
-					<th style="vertical-align:middle">Nomor Surat Nikah</th>
+					<th style="vertical-align:middle">Nomor&nbsp;Surat Nikah</th>
 					<th style="vertical-align:middle">Tanggal</th>
 					<th style="vertical-align:middle">Tahun</th>
-					<th style="vertical-align:middle">Nama Gereja & Tempat</th>
-					<th style="vertical-align:middle">Nama Pendeta</th>
+					<th style="vertical-align:middle">Nama&nbsp;Gereja&nbsp;&&nbsp;Tempat</th>
+					<th style="vertical-align:middle">Nama&nbsp;Pendeta</th>
 				</td>
 				<td>
-					<th style="vertical-align:middle">Nomor Akte Catatan Sipil</th>
+					<th style="vertical-align:middle">Nomor&nbsp;Akte&nbsp;Catatan&nbsp;Sipil</th>
 					<th style="vertical-align:middle">Tanggal</th>
 					<th style="vertical-align:middle">Tahun</th>
-					<th style="vertical-align:middle">Nama Tempat</th>
+					<th style="vertical-align:middle">Nama&nbsp;Tempat</th>
 				</td>
 				<td>
-					<th style="vertical-align:middle">Nomor Surat KUA</th>
+					<th style="vertical-align:middle">Nomor&nbsp;Surat&nbsp;KUA</th>
 					<th style="vertical-align:middle">Tanggal</th>
 					<th style="vertical-align:middle">Tahun</th>
-					<th style="vertical-align:middle">Nama Tempat</th>
+					<th style="vertical-align:middle">Nama&nbsp;Tempat</th>
+					<th style="vertical-align:middle">Nama&nbsp;Pendeta</th>
 				</td>
 				<td>
-					<th style="vertical-align:middle">Nomor Surat Cerai</th>
+					<th style="vertical-align:middle">Nomor&nbsp;Surat&nbsp;Cerai</th>
 					<th style="vertical-align:middle">Tanggal</th>
 					<th style="vertical-align:middle">Tahun</th>
-					<th style="vertical-align:middle">Nama Tempat</th>
+					<th style="vertical-align:middle">Nama&nbsp;Tempat</th>
 				</td>
 				<td>
-					<th style="vertical-align:middle">Jumlah Anak Kandung</th>
-					<th style="vertical-align:middle">Jumlah Anak Tanggungan</th>
-					<th style="vertical-align:middle">Dalam Keluarga Anak ke</th>
+					<th style="vertical-align:middle">Jumlah&nbsp;Anak&nbsp;Kandung</th>
+					<th style="vertical-align:middle">Jumlah&nbsp;Anak&nbsp;Tanggungan</th>
+					<th style="vertical-align:middle">Dalam&nbsp;Keluarga&nbsp;Anak&nbsp;ke</th>
 				</td>
 				<td>
-					<th style="vertical-align:middle">Nama Orang Tua Laki-Laki</th>
-					<th style="vertical-align:middle">Telah Wafat</th>
+					<th style="vertical-align:middle">Nama&nbsp;Orang&nbsp;Tua&nbsp;Laki-Laki</th>
+					<th style="vertical-align:middle">Telah&nbsp;Wafat</th>
 				</td>
 				<td>
-					<th style="vertical-align:middle">Nama Orang Tua Perempuan</th>
-					<th style="vertical-align:middle">Telah Wafat</th>
+					<th style="vertical-align:middle">Nama&nbsp;Orang&nbsp;Tua&nbsp;Perempuan</th>
+					<th style="vertical-align:middle">Telah&nbsp;Wafat</th>
 				</td>
-				<td>
+				<!-- <td>
 					<th style="vertical-align:middle">Admin</th>
 					<th style="vertical-align:middle">Aksi</th>
-				</td>
+				</td> -->
 				</tr>
 			</thead>
 			<tbody>
 				<?php
 				//query ke database SELECT tabel mahasiswa urut berdasarkan id yang paling besar
-				$sql = mysqli_query($koneksi, "SELECT * FROM mahasiswa ORDER BY Nim DESC") or die(mysqli_error($koneksi));
+				$sql = mysqli_query($koneksi, "SELECT * FROM personal ORDER BY nomorinduk DESC") or die(mysqli_error($koneksi));
 				//jika query diatas menghasilkan nilai > 0 maka menjalankan script di bawah if...
 				if(mysqli_num_rows($sql) > 0){
 					//membuat variabel $no untuk menyimpan nomor urut
@@ -76,22 +79,43 @@ include('config.php');
 						echo '
 						<tr>
 							<td style="vertical-align:middle">'.$no.'</td>
-							<td style="vertical-align:middle">'.$data['Nim'].'</td>
-							<td style="vertical-align:middle">'.$data['aktifberjemaat'].'</td>
-							<td style="vertical-align:middle">'.$data['Nama_Mhs'].'</td>
-							<td style="vertical-align:middle">'.$data['Jenis_Kelamin'].'</td>
-							<td style="vertical-align:middle">'.$data['Program_Studi'].'</td>
-							<td style="vertical-align:middle">'.$data['Program_Jemaat'].'</td>
-							<td style="vertical-align:middle">'.$data['Program_Coba1'].'</td>
-							<td style="vertical-align:middle">'.$data['Program_Coba1'].'</td>
-							<td style="vertical-align:middle">'.$data['Program_Coba1'].'</td>
-							<td style="vertical-align:middle">'.$data['Program_Coba1'].'</td>
-							<td style="vertical-align:middle">'.$data['Program_Coba1'].'</td>
-							<td style="vertical-align:middle">'.$data['Program_Coba1'].'</td>
-							<td style="vertical-align:middle">
-								<a href="index.php?page=edit_mhs&Nim='.$data['Nim'].'" class="btn btn-secondary btn-sm">Edit</a>
-								<a href="delete.php?Nim='.$data['Nim'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
-							</td>
+							<td style="vertical-align:middle">'.$data['nomorinduk'].'</td>
+							<td style="vertical-align:middle">'.$data['namalengkap'].'</td>
+							<td style="vertical-align:middle">'.$data['marital'].'</td>
+							<td style="vertical-align:middle">'.$data['pasangan'].'</td>
+							<td></td>
+							<td style="vertical-align:middle">'.$data['nikah'].'</td>
+							<td style="vertical-align:middle">'.$data['nikahtanggal'].'</td>
+							<td style="vertical-align:middle">'.$data['nikahtahun'].'</td>
+							<td style="vertical-align:middle">'.$data['nikahgereja'].'</td>
+							<td style="vertical-align:middle">'.$data['nikahpendeta'].'</td>
+							<td></td>
+							<td style="vertical-align:middle">'.$data['catatansipil'].'</td>
+							<td style="vertical-align:middle">'.$data['catatansipiltanggal'].'</td>
+							<td style="vertical-align:middle">'.$data['catatansipiltahun'].'</td>
+							<td style="vertical-align:middle">'.$data['catatansipiltempat'].'</td>
+							<td></td>
+							<td style="vertical-align:middle">'.$data['kua'].'</td>
+							<td style="vertical-align:middle">'.$data['kuatanggal'].'</td>
+							<td style="vertical-align:middle">'.$data['kuatahun'].'</td>
+							<td style="vertical-align:middle">'.$data['kuatempat'].'</td>
+							<td style="vertical-align:middle">'.$data['kuapendeta'].'</td>
+							<td></td>
+							<td style="vertical-align:middle">'.$data['cerai'].'</td>
+							<td style="vertical-align:middle">'.$data['ceraitanggal'].'</td>
+							<td style="vertical-align:middle">'.$data['ceraitahun'].'</td>
+							<td style="vertical-align:middle">'.$data['ceraitempat'].'</td>
+							<td></td>
+							<td style="vertical-align:middle">'.$data['anakkandung'].'</td>
+							<td style="vertical-align:middle">'.$data['anaktanggungan'].'</td>
+							<td style="vertical-align:middle">'.$data['anakke'].'</td>
+							<td></td>
+							<td style="vertical-align:middle">'.$data['ayah'].'</td>
+							<td style="vertical-align:middle">'.$data['ayahwafat'].'</td>
+							<td></td>
+							<td style="vertical-align:middle">'.$data['ibu'].'</td>
+							<td style="vertical-align:middle">'.$data['ibuwafat'].'</td>
+							
 						</tr>
 						';
 						$no++;
