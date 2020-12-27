@@ -62,8 +62,8 @@
                   </li>
                   <li><a><i class="fas fa-project-diagram"></i>&emsp;Proses Data Jemaat <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.php?page=data_tambah">Tambah Data</a></li>
-                      <li><a href="#">Filter & Edit Data</a></li>
+                      <li><a href="index.php?page=tambah_jemaat">Tambah Data</a></li>
+                      <li><a href="index.php?page=data_jemaat">Filter & Edit Data</a></li>
                       <li><a href="#">Ekspor Data</a></li>
                     </ul>
                   </li>
@@ -181,27 +181,52 @@
       parse_str($_SERVER['QUERY_STRING'], $queries);
       error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
       switch ($queries['page']) {
+
+// Personal System
+case 'data_jemaat':
+  # code...
+  include 'jemaat_data.php';
+  break;
+case 'tambah_jemaat':
+   # code...
+  include 'jemaat_tambah.php';
+   break;
+case 'tampil_jemaat':
+   # code...
+  include 'jemaat_tampil.php';
+   break;
+case 'edit_jemaat':
+    # code...
+  include 'jemaat_edit.php';
+  break;
+case 'edit_jemaat_save':
+      # code...
+  include 'jemaat_edit.php';
+  break;
+// Personal System
+
+
   // Proses Data
-        case 'data_tambah':
-      		# code...
-      		include 'tambah_data.php';
-          break;
-        case 'data_filteredit':
-      		# code...
-      		include 'filteredit_data.php';
-          break;
-        case 'edit_data':
-        		# code...
-        	include 'data_edit.php';
-        	break;
-        case 'edit_data_save':
-          		# code...
-          include 'data_edit.php';
-          break;
-        case 'data_ekspor':
-      		# code...
-      		include 'ekspor_data.php';
-          break;
+        // case 'data_tambah':
+      	// 	# code...
+      	// 	include 'tambah_data.php';
+        //   break;
+        // case 'data_filter':
+      	// 	# code...
+      	// 	include 'filter_tampil.php';
+        //   break;
+        // case 'edit_data':
+        // 		# code...
+        // 	include 'data_edit.php';
+        // 	break;
+        // case 'edit_data_save':
+        //   		# code...
+        //   include 'data_edit.php';
+        //   break;
+        // case 'data_ekspor':
+      	// 	# code...
+      	// 	include 'ekspor_data.php';
+        //   break;
   //Proses Data
   // Personal System
       	case 'personal_data':

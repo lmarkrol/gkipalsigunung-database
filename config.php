@@ -7,4 +7,5 @@ $koneksi = mysqli_connect("localhost","root","","gkipalsigunung");
 if (mysqli_connect_errno()){
 	echo "Gagal melakukan koneksi ke MySQL: " . mysqli_connect_error();
 }
+set_time_limit(500); // 
 ?>
